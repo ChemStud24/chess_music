@@ -1,0 +1,3 @@
+[submodule "musical_chess"]
+	path = musical_chess
+	url = https://github.com/yeshwanthv5/musical_chess.git

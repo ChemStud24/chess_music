@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<title>Featured Game</title>
+
+  <style type="text/css">
+
+    body {
+      font-family: Helvetica;
+      --bgColor: #fff;
+      --accent: #6441A4;
+      --fontColor: #232127;
+    }
+
+    .darkMode {
+      --bgColor: #201c2b;
+      --accent: #6441A4;
+      --fontColor: #e5e3e8;
+    }
+
+    button {
+      height: 1.5rem;
+      width: 2rem;
+      margin-top: .1rem;
+      font-size: 0.9rem;
+    }
+
+    a.button {
+      appearance: button;
+      text-decoration: none;
+      color: initial;
+    }
+
+    .players {
+      color: #26211b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: .2rem;
+    }
+
+    .vs {
+      color: #5a5855;
+      font-weight: 400;
+    }
+
+    .info {
+      color: #5a5855;
+      font-size: 0.9rem;
+    }
+
+    .moves {
+      width: 99%;
+      background-color: #fff;
+      border: .1rem solid #e8e7e6;
+    }
+
+    .column {
+      float: left;
+      width: 50%;
+    }
+
+  </style>
+
+  <!-- chess.js package -->
+  <script src="node_modules/chess.js/chess.js"></script>
+
+  <!-- chessboard.js package -->
+  <link rel="stylesheet" type="text/css" href="node_modules/@chrisoakman/chessboardjs/dist/chessboard-1.0.0.min.css">
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/@chrisoakman/chessboardjs/dist/chessboard-1.0.0.js"></script>
+
+  <!-- stockfish.js package -->
+  <script src="node_modules/stockfish/src/stockfish.js"></script>
+  <!-- script I wrote for Stockfish -->
+  <script src="engine.js"></script>
+
+</head>	
+
+<body>
+  <div class="column">
+    <div style="width: 90%">
+      <div id="header" style="background: #f3f3f3; width: 100%; border-bottom: 6px solid #f3f3f3">
+          <div id="players" class="players"></div>
+          <div id="info" class="info"></div>
+
+        <div id="myBoard" style="width: 100%; text-align: center;"></div>
+
+        <div>
+          <a id="link" target="_blank" class="button">&#128279</a>
+          <span style="float: right;">
+            <button id="flipBtn">&#8625&#8626</button>
+            <!-- onclick="board.orientation('flip');" -->
+            <button id ="play-pause" style="font-size: 0.6rem;">&#9658</button>
+            <!-- onclick="playpause()" -->
+            <button id="startBtn">|<</button>
+            <!-- onclick="goToStart()" -->
+            <button id="prevBtn"><<</button>
+            <!-- onclick="prevMove()" -->
+            <button id="nextBtn">>></button>
+            <!-- onclick="nextMoveButton()" -->
+            <button id="endBtn">>|</button>
+            <!-- onclick="goToEnd()" -->
+          </span>
+        </div>  
+        <!-- <button>&#9875</button> -->
+        <!-- <button>&#9208</button> -->
+        <!-- <button>&#9198</button> -->
+        <!-- <button>&#8810</button> -->
+        <!-- <button>&#8811</button> -->
+        <!-- <button>&#9197</button> -->
+        <!-- &#9812 through &#9823 are chess pieces -->
+
+        <div id="moves" class="moves"></div>
+        <!-- <div id="fens" class="moves"></div> -->
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div id="form">
+      <label for="username">Chess.com username:</label>
+      <input type="text" id="username" name="username" value="ChemStud24">
+      <label for="month">Month:</label>
+      <select id="month" name="month">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <label for="year">Year:</label>
+      <select id="year" name="year">
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+      </select>
+      <input type="button" id="updateBtn" name="update" value="Update">
+    </div>
+    <div style="text-align: center;">
+      <button id="prevGame"><<</button>
+      <span id="gameNumber"></span>
+      <button id="nextGame">>></button>
+    </div>
+    <p id="evals"></p>
+    <div id="printout"></div>
+  </div>
+
+  <!-- js I wrote for this app -->
+  <script src="featured-game.js"></script>
+
+</body>
+
+</html>
