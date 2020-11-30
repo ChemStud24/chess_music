@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="doc">
 
 <head>
 	
@@ -65,6 +65,8 @@
 
   </style>
 
+  <script src="music.js"></script>
+
   <!-- chess.js package -->
   <script src="node_modules/chess.js/chess.js"></script>
 
@@ -120,7 +122,11 @@
     </div>
   </div>
   <div class="column">
-    <div id="form">
+    <div id="heading">
+      <h1 style="text-align: center;">Music for Your Chess Games!</h1>
+      <h4>Fetch games from any <a href="chess.com">Chess.com</a> user's archive and review them with a musical narration that adjusts to the current context of the game.</h4>
+    </div>
+    <div id="form" style="text-align: center;">
       <label for="username">Chess.com username:</label>
       <input type="text" id="username" name="username" value="ChemStud24">
       <label for="month">Month:</label>
@@ -158,6 +164,7 @@
       <span id="gameNumber"></span>
       <button id="nextGame">>></button>
     </div>
+    <p>This app was built with node.js, jQuery, <a href="">chess.js</a>, <a href="">chessboard.js</a>, and <a href="">stockfish.js</a> (powered by the open-source chess engine <a href="">Stockfish</a>) and uses the <a href="">Chess.com Public API</a>.  The music was obtained royalty-free through <a href="">Dripchord</a> and was composed by the user SKI.</p>
     <p id="evals"></p>
     <div id="printout"></div>
   </div>

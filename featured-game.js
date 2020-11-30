@@ -28,6 +28,7 @@ xh.onreadystatechange = function() {
 function updateGame() {
   stopNOW = true;
   stockfish.postMessage("stop");
+  newSong();
   evals = [];
   if (finished) {
     stockfish.postMessage("isready");
