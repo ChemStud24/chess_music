@@ -43,15 +43,15 @@ var ac = new AudioContext;
 // }
 
 var changeTempo = function() {
-	// prevWP = wp(evals[moveIdx-1]);
-	// diff = wp(evals[moveIdx]) - prevWP;
-	// Player.tempo = tempo + 200*Math.abs(diff);
-	if (Math.abs(evals[moveIdx]) > 1) {
-		Player.tempo = 200;
-		document.getElementById("printout").innerHTML = "Tempo: 200";
-	} else {
-		Player.tempo = tempo;
-		document.getElementById("printout").innerHTML = "Tempo: " + tempo;
+	prevWP = wp(evals[moveIdx-1]);
+	diff = wp(evals[moveIdx]) - prevWP;
+	Player.tempo = tempo - 50 + 100*Math.abs(diff);
+	// if (Math.abs(evals[moveIdx]) > 1) {
+	// 	Player.tempo = 200;
+	// 	document.getElementById("printout").innerHTML = "Tempo: 200";
+	// } else {
+	// 	Player.tempo = tempo;
+	// 	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
 	}
 }
 

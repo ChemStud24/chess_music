@@ -63,7 +63,7 @@ stockfish.onmessage = function(event) {
 		} else if (event.data.includes("bestmove")) {
 			evals.push(score);
 			fenIdx++;
-			document.getElementById("printout").innerHTML = "<p>" + fenIdx + " / " + fens.length + "</p>";
+			// document.getElementById("printout").innerHTML = "<p>" + fenIdx + " / " + fens.length + "</p>";
 			if (fenIdx < fens.length) {
 				stockfish.postMessage("position fen " + fens[fenIdx]);
 				stockfish.postMessage("go depth " + DEPTH);
