@@ -45,8 +45,11 @@ var ac = new AudioContext;
 var changeTempo = function() {
 	prevWP = wp(evals[moveIdx-1]);
 	diff = wp(evals[moveIdx]) - prevWP;
-	Player.tempo = tempo - 50 + 100*Math.abs(diff);
-	document.getElementById("printout").innerHTML = "Tempo: " + (tempo - 50 + 100*Math.abs(diff));
+	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
+	// Player.tempo = t;
+	tempo *= Math.abs(diff) + 1;
+	Player.tempo = tempo;
+	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
 	// 	Player.tempo = 200;
 	// 	document.getElementById("printout").innerHTML = "Tempo: 200";
