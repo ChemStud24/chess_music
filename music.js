@@ -58,7 +58,7 @@ var changeTempo = function() {
 			factor = 2*Math.abs(wp(scoreNow) - wp(preval)) + 1;
 		} else {
 			// the lead decreased
-			factor = 1 - 2*Math.abs(wp(scoreNow) - wp(preval));
+			factor = 1; // - 2*Math.abs(wp(scoreNow) - wp(preval));
 		}
 
 	} else {
