@@ -30,7 +30,7 @@ var songs = [changes,crucify,gloom,gunplay,model,panic,please,scale,war];
 var bpms = [88,135,98,119,160,89,166,150,148];
 var Player = 1;
 var tempo;
-var prevTempo;
+var prevTempo = [];
 var currTempo;
 var song;
 var newSong;
@@ -68,8 +68,10 @@ var changeTempo = function() {
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
+	prevTempo3 = prevTempo2;
+	prevTempo2 = prevTempo;
 	prevTempo = currTempo;
-	currTempo = Math.floor((tempo * factor + prevTempo)/2);
+	currTempo = Math.floor((tempo * factor + prevTempo + prevTempo2 + prevTempo3)/4);
 	Player.tempo = currTempo;
 	document.getElementById("printout").innerHTML = "Tempo: " + currTempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
@@ -107,6 +109,8 @@ Soundfont.instrument(ac, 'https://raw.githubusercontent.com/gleitz/midi-js-sound
 		song = songs[songIdx];
 		tempo = bpms[songIdx];
 		currTempo = tempo;
+		prevTempo = tempo;
+		prevTempo2 = tempo;
 		restart();
 		Player.tempo = tempo;
 	}
