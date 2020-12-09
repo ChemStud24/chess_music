@@ -50,7 +50,7 @@ var changeTempo = function() {
 	}
 	scoreNow = evals[moveIdx];
 
-	if (preval >= 0 && scoreNow > 0) || (preval <= 0 && scoreNow < 0) {
+	if ((preval >= 0 && scoreNow > 0) || (preval <= 0 && scoreNow < 0)) {
 		if (Math.abs(scoreNow) > Math.abs(preval)) {
 			// the lead increased
 			factor = Math.abs(wp(scoreNow) - wp(preval)) + 1;
