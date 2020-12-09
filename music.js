@@ -56,7 +56,7 @@ var changeTempo = function() {
 			factor = Math.abs(wp(scoreNow) - wp(preval)) + 1;
 		} else {
 			// the lead decreased
-			factor = 1 - Math.abs(wp(scoreNow) - wp(preval));
+			factor = 1 - 4*Math.abs(wp(scoreNow) - wp(preval));
 		}
 
 	} else {
@@ -66,9 +66,9 @@ var changeTempo = function() {
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
-	// tempo = Math.floor(tempo * factor);
-	Player.tempo = Math.floor(tempo * factor);
-	document.getElementById("printout").innerHTML = "Tempo: " + Math.floor(tempo * factor);
+	tempo = Math.floor(tempo * factor);
+	Player.tempo = tempo;
+	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
 	// 	Player.tempo = 200;
 	// 	document.getElementById("printout").innerHTML = "Tempo: 200";
