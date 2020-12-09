@@ -152,7 +152,7 @@ function goToStart() {
   }
   moveIdx = -1; // update move index
   board.position("start");
-  updateTempo();
+  changeTempo();
 }
 
 function nextMoveButton() {
@@ -184,7 +184,7 @@ function nextMove() {
   // highlight the current position
   document.getElementById(moveIdx).style="background-color: #ffff00";
   board.position(fens[moveIdx]);
-  updateTempo();
+  changeTempo();
 }
 
 function prevMove() {
@@ -205,7 +205,7 @@ function prevMove() {
     // highlight the current position
     document.getElementById(moveIdx).style="background-color: #ffff00";
     board.position(fens[moveIdx]);
-    updateTempo();
+    changeTempo();
   }
 }
 
@@ -223,7 +223,7 @@ function goToMove(n) {
   // highlight the current position
   document.getElementById(n).style="background-color: #ffff00";
   board.position(fens[n]);
-  updateTempo();
+  changeTempo();
 }
 
 function goToEnd() {
@@ -240,7 +240,7 @@ function goToEnd() {
   // highlight the current position
   document.getElementById(moveIdx).style="background-color: #ffff00";
   board.position(fens[moveIdx]);
-  updateTempo();
+  changeTempo();
 }
 
 function playpause() {
@@ -261,7 +261,6 @@ function nextGame() {
   gameIdx++;
   gameIdx = Math.min(gameIdx,archLength-1);
   updateGame();
-  changeTempo();
 }
 
 function prevGame() {
