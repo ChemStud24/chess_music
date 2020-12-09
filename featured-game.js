@@ -152,7 +152,6 @@ function goToStart() {
   }
   moveIdx = -1; // update move index
   board.position("start");
-  changeTempo();
 }
 
 function nextMoveButton() {
