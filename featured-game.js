@@ -152,6 +152,7 @@ function goToStart() {
   }
   moveIdx = -1; // update move index
   board.position("start");
+  updateTempo();
 }
 
 function nextMoveButton() {
@@ -183,6 +184,7 @@ function nextMove() {
   // highlight the current position
   document.getElementById(moveIdx).style="background-color: #ffff00";
   board.position(fens[moveIdx]);
+  updateTempo();
 }
 
 function prevMove() {
@@ -203,6 +205,7 @@ function prevMove() {
     // highlight the current position
     document.getElementById(moveIdx).style="background-color: #ffff00";
     board.position(fens[moveIdx]);
+    updateTempo();
   }
 }
 
@@ -220,6 +223,7 @@ function goToMove(n) {
   // highlight the current position
   document.getElementById(n).style="background-color: #ffff00";
   board.position(fens[n]);
+  updateTempo();
 }
 
 function goToEnd() {
@@ -236,6 +240,7 @@ function goToEnd() {
   // highlight the current position
   document.getElementById(moveIdx).style="background-color: #ffff00";
   board.position(fens[moveIdx]);
+  updateTempo();
 }
 
 function playpause() {
