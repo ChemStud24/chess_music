@@ -51,7 +51,7 @@ var changeTempo = function() {
 	diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
-	tempo *= Math.abs(diff) + 1;
+	tempo = tempo * (Math.abs(diff) + 1);
 	Player.tempo = tempo;
 	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
