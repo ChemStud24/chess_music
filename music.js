@@ -52,7 +52,7 @@ var changeTempo = function() {
 	// } else {
 	// 	Player.tempo = tempo;
 	// 	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
-	}
+	// }
 }
 
 function wp(score) {
