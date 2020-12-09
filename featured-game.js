@@ -137,7 +137,7 @@ function update() {
   xh.send();
 }
 
-update();
+// update();
 // setInterval(update,30000); // update every 30 seconds with the most recent game
 
 // add position navigation functions
