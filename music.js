@@ -66,9 +66,9 @@ var changeTempo = function() {
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
-	tempo = Math.floor(tempo * factor);
-	Player.tempo = tempo;
-	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
+	// tempo = Math.floor(tempo * factor);
+	Player.tempo = Math.floor(tempo * factor);
+	document.getElementById("printout").innerHTML = "Tempo: " + Math.floor(tempo * factor);
 	// if (Math.abs(evals[moveIdx]) > 1) {
 	// 	Player.tempo = 200;
 	// 	document.getElementById("printout").innerHTML = "Tempo: 200";
