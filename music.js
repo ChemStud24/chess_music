@@ -63,7 +63,7 @@ var changeTempo = function() {
 
 	} else {
 		// the lead changed
-		factor = 5*Math.abs(wp(scoreNow) - wp(preval)) + 1;
+		factor = 3*Math.abs(wp(scoreNow) - wp(preval)) + 1;
 	}
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
