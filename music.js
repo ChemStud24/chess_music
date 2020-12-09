@@ -45,6 +45,10 @@ var changeTempo = function(tempo) {
 	Player.tempo = tempo;
 }
 
+function wp(score) {
+	return 1/(1+Math.pow(10,-score/4));
+}
+
 Soundfont.instrument(ac, 'https://raw.githubusercontent.com/gleitz/midi-js-soundfonts/gh-pages/MusyngKite/acoustic_guitar_nylon-mp3.js').then(function (instrument) {
 
 	// Player = new MidiPlayer.Player(function(event) {
