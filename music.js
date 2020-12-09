@@ -65,21 +65,12 @@ var changeTempo = function() {
 		// the lead changed
 		factor = 3*Math.abs(wp(scoreNow) - wp(preval)) + 1;
 	}
-	// diff = wp(evals[moveIdx]) - prevWP;
-	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
-	// Player.tempo = t;
+	// moving average
 	prevTempo2 = prevTempo;
 	prevTempo = currTempo;
 	currTempo = Math.floor((tempo * factor + prevTempo + prevTempo2)/3);
 	Player.tempo = currTempo;
-	document.getElementById("printout").innerHTML = "Tempo: " + currTempo;
-	// if (Math.abs(evals[moveIdx]) > 1) {
-	// 	Player.tempo = 200;
-	// 	document.getElementById("printout").innerHTML = "Tempo: 200";
-	// } else {
-	// 	Player.tempo = tempo;
-	// 	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
-	// }
+	// document.getElementById("printout").innerHTML = "Tempo: " + currTempo;
 }
 
 function wp(score) {

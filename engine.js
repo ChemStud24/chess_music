@@ -42,17 +42,17 @@ stockfish.onmessage = function(event) {
 		}
 			// document.getElementById("printout").innerHTML = score + " " + evals.length;
 			evals.push(score);
-			var evalHTML = "";
-			for (i = 0; i < evals.length; i++) {
-				if (i % 2 == 0) {
-					evalHTML += "<p>" + (i/2+1) + ". " + evals[i] + " ";
-				} else if (i != evals.length-1) {
-					evalHTML += evals[i] + "</p><p>";
-				} else {
-					evalHTML += evals[i] + "</p>";
-				}
-			}
-				document.getElementById("evals").innerHTML = evalHTML;
+			// var evalHTML = "";
+			// for (i = 0; i < evals.length; i++) {
+			// 	if (i % 2 == 0) {
+			// 		evalHTML += "<p>" + (i/2+1) + ". " + evals[i] + " ";
+			// 	} else if (i != evals.length-1) {
+			// 		evalHTML += evals[i] + "</p><p>";
+			// 	} else {
+			// 		evalHTML += evals[i] + "</p>";
+			// 	}
+			// }
+			// 	document.getElementById("evals").innerHTML = evalHTML;
 				evals.pop();
 				// document.getElementById("evals").innerHTML = "<p>" + evals.join("</p><p>") + "</p>";
 			// }
