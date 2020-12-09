@@ -55,7 +55,7 @@ var changeTempo = function() {
 	if ((preval >= 0 && scoreNow > 0) || (preval <= 0 && scoreNow < 0)) {
 		if (Math.abs(scoreNow) > Math.abs(preval)) {
 			// the lead increased
-			factor = 2*Math.abs(wp(scoreNow) - wp(preval)) + 1;
+			factor = 3*Math.abs(wp(scoreNow) - wp(preval)) + 1;
 		} else {
 			// the lead decreased
 			factor = 1; // - 2*Math.abs(wp(scoreNow) - wp(preval));
@@ -63,7 +63,7 @@ var changeTempo = function() {
 
 	} else {
 		// the lead changed
-		factor = 4*Math.abs(wp(scoreNow) - wp(preval)) + 1;
+		factor = 5*Math.abs(wp(scoreNow) - wp(preval)) + 1;
 	}
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
