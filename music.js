@@ -44,15 +44,30 @@ var ac = new AudioContext;
 
 var changeTempo = function() {
 	if (moveIdx <= 0) {
-		prevWP = wp(0.35);
+		preval = 0.35;
 	} else {
-		prevWP = wp(evals[moveIdx-1]);
+		preval = evals[moveIdx-1];
 	}
-	diff = wp(evals[moveIdx]) - prevWP;
+	scoreNow = evals[moveIdx];
+
+	if (preval >= 0 && scoreNow > 0) || (preval <= 0 && scoreNow < 0) {
+		if (Math.abs(scoreNow) > Math.abs(preval)) {
+			// the lead increased
+			factor = Math.abs(wp(scoreNow) - wp(preval)) + 1;
+		} else {
+			// the lead decreased
+			factor = 1 - Math.abs(wp(scoreNow) - wp(preval));
+		}
+
+	} else {
+		// the lead changed
+		factor = 2*Math.abs(wp(scoreNow) - wp(preval)) + 1;
+	}
+	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
-	tempo = tempo * (Math.abs(diff) + 1);
-	Player.tempo = Math.floor(tempo);
+	tempo = Math.floor(tempo * factor);
+	Player.tempo = tempo;
 	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
 	// 	Player.tempo = 200;
