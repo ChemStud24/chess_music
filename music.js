@@ -52,7 +52,7 @@ var changeTempo = function() {
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
 	tempo = tempo * (Math.abs(diff) + 1);
-	Player.tempo = tempo;
+	Player.tempo = Math.floor(tempo);
 	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
 	// 	Player.tempo = 200;
