@@ -106,6 +106,7 @@ Soundfont.instrument(ac, 'https://raw.githubusercontent.com/gleitz/midi-js-sound
 		var songIdx = Math.floor(Math.random() * songs.length);
 		song = songs[songIdx];
 		tempo = bpms[songIdx];
+		prevTempo = tempo;
 		restart();
 		Player.tempo = tempo;
 	}
