@@ -26,8 +26,10 @@
 
 // document.getElementById("doc").addEventListener("click", startMusic);
 
-var songs = ['changes.mid','crucify.mid','gloom.mid','gunplay.mid','model.mid','panic.mid','please.mid','scale.mid','war.mid']
-var Player;
+var songs = [changes,crucify,gloom,gunplay,model,panic,please,scale,war];
+var bpms = [88,135,98,119,160,89,166,150,148];
+var Player = 1;
+var song;
 var newSong;
 var ac = new AudioContext;
 
@@ -45,27 +47,40 @@ var changeTempo = function(tempo) {
 
 Soundfont.instrument(ac, 'https://raw.githubusercontent.com/gleitz/midi-js-soundfonts/gh-pages/MusyngKite/acoustic_guitar_nylon-mp3.js').then(function (instrument) {
 
-	Player = new MidiPlayer.Player(function(event) {
-		if (event.name == 'Note on' && event.velocity > 0) {
-			instrument.play(event.noteName, ac.currentTime, {gain:event.velocity/100});
-		}
-	});
+	// Player = new MidiPlayer.Player(function(event) {
+	// 	if (event.name == 'Note on' && event.velocity > 0) {
+	// 		instrument.play(event.noteName, ac.currentTime, {gain:event.velocity/100});
+	// 	}
+	// });
+
+	// Player.on('endOfFile',function(event){
+	// 	Player.resetTracks();
+	// 	document.getElementById("printout").innerHTML = "I GOT HERE!!!"
+	// 	Player.play();
+	// });
 
 	newSong = function() {
-		// Player.stop()
-		var file = 'songs/wav/' + songs[Math.floor(Math.random() * songs.length)];
-		// var reader = new FileReader();
-		// reader.readAsArrayBuffer(file);
+		if (Player != 1) {
+			Player.stop();
+		}
+		var songIdx = Math.floor(Math.random() * songs.length);
+		song = songs[songIdx];
+		restart();
+		Player.tempo = bpms[songIdx];
+	}
 
-		// reader.addEventListener("load",function(){
-		// 	Player = new MidiPlayer.Player(function(event) {
-		// 		if (event.name == 'Note on' && event.velocity > 0) {
-		// 			instrument.play(event.noteName, ac.currentTime, {gain:event.velocity/100});
-		// 		}
-		// 	});
-		// });
+	function restart() {
+		Player = new MidiPlayer.Player(function(event) {
+			if (event.name == 'Note on' && event.velocity > 0) {
+				instrument.play(event.noteName, ac.currentTime, {gain:event.velocity/100});
+			}
+		});
 
-		Player.loadFile(file);
+		Player.on('endOfFile',function(event){
+			restart();
+		});
+
+		Player.loadDataUri(song);
 		Player.play();
 	}
 });
