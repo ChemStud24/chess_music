@@ -247,7 +247,7 @@ function playpause() {
     // switch to pause button
     document.getElementById("play-pause").innerHTML = "&#10074&#10074";
     nextMove();
-    playId = setInterval(nextMove,1000); // begin autoplay
+    playId = setInterval(nextMove,3000); // begin autoplay
   }
   playing = !playing;
 }
@@ -256,6 +256,7 @@ function nextGame() {
   gameIdx++;
   gameIdx = Math.min(gameIdx,archLength-1);
   updateGame();
+  changeTempo();
 }
 
 function prevGame() {
