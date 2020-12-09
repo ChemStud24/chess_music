@@ -43,7 +43,11 @@ var ac = new AudioContext;
 // }
 
 var changeTempo = function() {
-	prevWP = wp(evals[moveIdx-1]);
+	if (moveIdx <= 0) {
+		prevWP = wp(0.35);
+	} else {
+		prevWP = wp(evals[moveIdx-1]);
+	}
 	diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
