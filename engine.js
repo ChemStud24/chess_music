@@ -1,4 +1,4 @@
-DEPTH = 18;
+DEPTH = 16;
 DEBUG = false;
 var stopNOW = false;
 var finished = false;
