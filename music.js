@@ -30,6 +30,8 @@ var songs = [changes,crucify,gloom,gunplay,model,panic,please,scale,war];
 var bpms = [88,135,98,119,160,89,166,150,148];
 var Player = 1;
 var tempo;
+var prevTempo;
+var currTempo;
 var song;
 var newSong;
 var ac = new AudioContext;
@@ -56,7 +58,7 @@ var changeTempo = function() {
 			factor = Math.abs(wp(scoreNow) - wp(preval)) + 1;
 		} else {
 			// the lead decreased
-			factor = 1 - 4*Math.abs(wp(scoreNow) - wp(preval));
+			factor = 1; // - 2*Math.abs(wp(scoreNow) - wp(preval));
 		}
 
 	} else {
@@ -66,9 +68,10 @@ var changeTempo = function() {
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
-	tempo = Math.floor(tempo * factor);
-	Player.tempo = tempo;
-	document.getElementById("printout").innerHTML = "Tempo: " + tempo;
+	prevTempo = currTempo;
+	currTempo = Math.floor((tempo * factor + prevTempo)/2);
+	Player.tempo = currTempo;
+	document.getElementById("printout").innerHTML = "Tempo: " + currTempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
 	// 	Player.tempo = 200;
 	// 	document.getElementById("printout").innerHTML = "Tempo: 200";
