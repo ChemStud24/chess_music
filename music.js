@@ -68,10 +68,9 @@ var changeTempo = function() {
 	// diff = wp(evals[moveIdx]) - prevWP;
 	// t = Math.floor(tempo - 50 + 100*Math.abs(diff));
 	// Player.tempo = t;
-	prevTempo3 = prevTempo2;
 	prevTempo2 = prevTempo;
 	prevTempo = currTempo;
-	currTempo = Math.floor((tempo * factor + prevTempo + prevTempo2 + prevTempo3)/4);
+	currTempo = Math.floor((tempo * factor + prevTempo + prevTempo2)/3);
 	Player.tempo = currTempo;
 	document.getElementById("printout").innerHTML = "Tempo: " + currTempo;
 	// if (Math.abs(evals[moveIdx]) > 1) {
