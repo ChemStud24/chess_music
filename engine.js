@@ -76,7 +76,7 @@ stockfish.onmessage = function(event) {
 			}
 		}
 	} else {
-		document.getElementById("evals").innerHTML = "Loading..."
+		// document.getElementById("evals").innerHTML = "Loading..."
 		if (event.data.includes("bestmove")) {
 			stockfish.postMessage("isready");
 		}
